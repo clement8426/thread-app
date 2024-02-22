@@ -8,7 +8,7 @@ import {
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { User2 } from "lucide-react";
-import { DropdownMenuItemLogout } from "./LogOutButton";
+import { DropdownMenuItemLogout } from "./LogoutButton";
 
 export const UserProfile = async () => {
   const session = await getAuthSession();
