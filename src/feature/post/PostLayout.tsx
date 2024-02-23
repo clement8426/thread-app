@@ -4,7 +4,7 @@ import { PostHome } from "@/src/query/post.query";
 import clsx from "clsx";
 import { MoreHorizontal } from "lucide-react";
 import Link from "next/link";
-import { PropsWithChildren } from "react";
+import { Children, PropsWithChildren } from "react";
 
 type PostLayoutProps = PropsWithChildren<{
   user: PostHome["user"];
@@ -18,6 +18,7 @@ export const PostLayout = ({
   user,
   createdAt,
   postId,
+  children,
 }: PostLayoutProps) => {
   return (
     <div className={clsx("flex w-full flexrow items-start p-4", className)}>
@@ -43,6 +44,7 @@ export const PostLayout = ({
             <MoreHorizontal size={20} />
           </div>
         </Link>
+        {children}
       </div>
     </div>
   );
