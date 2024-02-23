@@ -37,10 +37,10 @@ export default function WritePostFrom({ user, onSubmit }: WritePostFormProps) {
       <Form
         form={form}
         onSubmit={async (values) => {
-          const result = await onSubmit(values);
-          console.log("sumbit client side, result: ", result);
+          const postId = await onSubmit(values);
+          console.log("sumbit client side, postId: ", postId);
 
-          // router.push("/");
+          router.push(`/posts/${postId}`);
         }}
       >
         <FormField
