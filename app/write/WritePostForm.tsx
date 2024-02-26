@@ -12,8 +12,8 @@ import {
 } from "@/components/ui/form";
 import { useRouter } from "next/navigation";
 import { PostLayout } from "@/src/feature/post/PostLayout";
-import { ContentTextArea } from "@/src/feature/post/ContentTextArea";
 import { Button } from "@/components/ui/button";
+import { ContentTextArea } from "@/components/ui/ContentTextArea";
 
 const Schema = z.object({
   content: z.string().min(1).max(500),
