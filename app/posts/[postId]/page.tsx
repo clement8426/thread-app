@@ -2,6 +2,7 @@ import { getAuthSession } from "@/lib/auth";
 import { Post } from "@/src/feature/post/Post";
 import { getPostView } from "@/src/query/post.query";
 import clsx from "clsx";
+import NotFound from "../not-found";
 
 export default async function PostView({
   params,
@@ -15,7 +16,7 @@ export default async function PostView({
   const post = await getPostView(params.postId, session?.user.id);
 
   if (!post) {
-    return <div>Post not found</div>;
+    return <NotFound />;
   }
   return (
     <div className="divide-y divide-accent">

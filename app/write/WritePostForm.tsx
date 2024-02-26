@@ -41,6 +41,7 @@ export default function WritePostFrom({ user, onSubmit }: WritePostFormProps) {
           console.log("sumbit client side, postId: ", postId);
 
           router.push(`/posts/${postId}`);
+          router.refresh();
         }}
       >
         <FormField
