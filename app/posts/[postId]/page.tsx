@@ -1,3 +1,33 @@
-export default async function page() {
-  return <div>page postId</div>;
+import { getAuthSession } from "@/lib/auth";
+import { Post } from "@/src/feature/post/Post";
+import { getPostView } from "@/src/query/post.query";
+import clsx from "clsx";
+
+export default async function PostView({
+  params,
+}: {
+  params: {
+    postId: string;
+  };
+}) {
+  const session = await getAuthSession();
+
+  const post = await getPostView(params.postId, session?.user.id);
+
+  if (!post) {
+    return <div>Post not found</div>;
+  }
+  return (
+    <div className="divide-y divide-accent">
+      {post.parents && <Post post={post.parents} key={post.parents.id} />}
+      <div className={clsx({ "ml-10": post.parents })}>
+        <Post post={post} key={post.id} />
+        <div className="ml-10 divide-y divide-accent">
+          {post.replies.map((reply) => (
+            <Post post={reply} key={reply.id} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }

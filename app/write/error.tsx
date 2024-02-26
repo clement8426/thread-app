@@ -19,8 +19,14 @@ export default function Error({
   return (
     <Alert className="my-8">
       <AlertTriangle />
-      <AlertTitle>Something went wrong</AlertTitle>
-      <AlertDescription>You must be logged to access</AlertDescription>
+      <AlertTitle>Error: Something went wrong</AlertTitle>
+      <AlertDescription>
+        Unfortunately, an unexpected error occurred. Please try again later or
+        contact support if the problem persists.
+        {error.digest === "unauthenticated" && (
+          <> You might need to be logged in to access this feature.</>
+        )}
+      </AlertDescription>
     </Alert>
   );
 }
