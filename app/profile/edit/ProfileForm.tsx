@@ -57,6 +57,7 @@ export const ProfileForm = ({ onSubmit, user }: ProfileFormProps) => {
 
         if (url) {
           router.push(url);
+          window.location.href = url;
           router.refresh();
         }
       }}
