@@ -1,4 +1,4 @@
-"use client"; // Error components must be Client Components
+"use client";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertTriangle } from "lucide-react";
@@ -21,8 +21,8 @@ export default function Error({
       <AlertTriangle />
       <AlertTitle>Error: Something went wrong</AlertTitle>
       <AlertDescription>
-        Unfortunately, an unexpected error occurred. Please try again later or
-        contact support if the problem persists.
+        Unfortunately, an unexpected error occurred. You need to be logged in to
+        access this feature.
       </AlertDescription>
     </Alert>
   );

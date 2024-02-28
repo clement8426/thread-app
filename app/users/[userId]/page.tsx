@@ -1,5 +1,4 @@
 import { Button, buttonVariants } from "@/components/ui/button";
-
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -69,15 +68,21 @@ export default async function User({
         ) : null}
         {!isCurrent ? (
           <form>
-            <Button
-              formAction={async () => {
-                "use server";
-                await followUser(user.id);
-              }}
-              variant="outline"
-            >
-              {isFollower ? "Unfollow" : "Follow"}
-            </Button>
+            {session ? (
+              <Button
+                formAction={async () => {
+                  "use server";
+                  await followUser(user.id);
+                }}
+                variant="outline"
+              >
+                {isFollower ? "Unfollow" : "Follow"}
+              </Button>
+            ) : (
+              <Button variant="outline">
+                <Link href="/connect">Follow</Link>
+              </Button>
+            )}
           </form>
         ) : null}
       </div>
